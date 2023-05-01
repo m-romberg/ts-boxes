@@ -11,7 +11,7 @@
  */
 
 
-interface IBox {
+interface BoxPropsInterface {
   id: string,
   width: number,
   height: number,
@@ -19,7 +19,7 @@ interface IBox {
   remove: (arg0: string) => void,
 }
 
-function Box({ id, width = 5, height = 5, backgroundColor, remove }: IBox): JSX.Element {
+function Box({ id, width = 5, height = 5, backgroundColor, remove }: BoxPropsInterface): JSX.Element {
 
   /** Remove a box. */
   function handleRemove():void {
