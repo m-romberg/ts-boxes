@@ -8,6 +8,13 @@ import NewBoxForm from "./NewBoxForm";
  * - boxes: [ { id, width, height, backgroundColor }, ... ]
  */
 
+interface IBoxForm {
+  id: string,
+  width: string,
+  height: string,
+  backgroundColor: string,
+}
+
 interface IBox {
   id: string,
   width: number,
@@ -20,8 +27,9 @@ function BoxList(): JSX.Element {
   const [boxes, setBoxes] = useState<IBox[] | []>([]);
 
   /** add box with given { id, width, height, backgroundColor } */
-  function add(newBox: IBox): void {
-    setBoxes(boxes => [...boxes, newBox]);
+  function add(newBox: IBoxForm): void {
+    const box= {...newBox, width: +newBox.width, height: +newBox.height }
+    setBoxes(boxes => [...boxes, box]);
   }
 
   /** remove box matching that id. */
